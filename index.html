@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body >
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container" dir="ltr">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-brain me-2"></i>Quiz App
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" id="home-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="about-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="contact-link">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container my-5">
+        <section id="welcome-section" class="section active">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-4 fw-bold mb-4">اختبر معرفتك مع تطبيق الاختبارات</h1>
+                    <p class="lead mb-5">تطبيق تفاعلي يقدم مجموعة متنوعة من الاختبارات في مجالات مختلفة لاختبار معلوماتك وتطوير مهاراتك.</p>
+                    <button class="btn btn-primary btn-lg" id="start-btn">ابدأ الاختبار</button>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card category-card" data-category="general">
+                        <div class="category-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4>المعلومات العامة</h4>
+                        <p>اختبار معلوماتك في مختلف المجالات</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card category-card" data-category="science">
+                        <div class="category-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h4>العلوم</h4>
+                        <p>اختبر معرفتك في العلوم والتكنولوجيا</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card category-card" data-category="history">
+                        <div class="category-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h4>التاريخ</h4>
+                        <p>تعرف على معلوماتك التاريخية</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="category-section" class="section">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card p-4">
+                        <h2 class="text-center mb-4">اختر فئة الاختبار</h2>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="card category-card" data-category="general">
+                                    <div class="category-icon">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                    <h4>المعلومات العامة</h4>
+                                    <p>10 أسئلة في مختلف المجالات</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="card category-card" data-category="science">
+                                    <div class="category-icon">
+                                        <i class="fas fa-flask"></i>
+                                    </div>
+                                    <h4>العلوم</h4>
+                                    <p>10 أسئلة في العلوم والتكنولوجيا</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="card category-card" data-category="history">
+                                    <div class="category-icon">
+                                        <i class="fas fa-landmark"></i>
+                                    </div>
+                                    <h4>التاريخ</h4>
+                                    <p>10 أسئلة في التاريخ العالمي</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="card category-card" data-category="geography">
+                                    <div class="category-icon">
+                                        <i class="fas fa-map"></i>
+                                    </div>
+                                    <h4>الجغرافيا</h4>
+                                    <p>10 أسئلة في الجغرافيا</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-secondary" id="back-to-welcome">رجوع</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="quiz-section" class="section">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="d-flex align-items-center">
+                                <div class="question-number me-3" id="current-question">1</div>
+                                <div>
+                                    <h5 class="mb-0" id="category-name">المعلومات العامة</h5>
+                                    <small class="text-muted">سؤال <span id="question-counter">1</span> من <span id="total-questions">10</span></small>
+                                    </div>
+                            </div>
+                            <div class="timer" id="timer">01:00</div>
+                        </div>
+                        
+                        <div class="progress">
+                            <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 10%"></div>
+                        </div>
+                        
+                        <h4 class="mb-4" id="question-text">ما هي عاصمة فرنسا؟</h4>
+                        
+                        <div id="options-container">
+                            
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-4">
+                            <button class="btn btn-secondary" id="prev-btn" disabled>السابق</button>
+                            <button class="btn btn-primary" id="next-btn">التالي</button>
+                            <button class="btn btn-success d-none" id="submit-btn">إنهاء الاختبار</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="results-section" class="section">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="result-card">
+                        <h2 class="mb-4">نتيجة الاختبار</h2>
+                        <div class="score-display mb-3" id="final-score">8/10</div>
+                        <h4 class="mb-4" id="result-message">أداء ممتاز!</h4>
+                        <p class="mb-4" id="result-description">لقد أظهرت معرفة ممتازة في هذا المجال، استمر في التعلم والتطوير!</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6 mb-3">
+                                <div class="card bg-light text-dark p-3">
+                                    <h5>الإجابات الصحيحة</h5>
+                                    <div class="fs-3 fw-bold" id="correct-answers">8</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="card bg-light text-dark p-3">
+                                    <h5>الإجابات الخاطئة</h5>
+                                    <div class="fs-3 fw-bold" id="wrong-answers">2</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <button class="btn btn-light me-2" id="restart-btn">إعادة الاختبار</button>
+                            <button class="btn btn-outline-light" id="home-results-btn">العودة للرئيسية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="about-section" class="section">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card p-4">
+                        <h2 class="text-center mb-4">حول تطبيق الاختبارات</h2>
+                        <p>تطبيق الاختبارات هو منصة تفاعلية تتيح للمستخدمين اختبار معرفتهم في مجالات متنوعة مثل المعلومات العامة، العلوم، التاريخ، والجغرافيا.</p>
+                        
+                        <h4 class="mt-4">المميزات:</h4>
+                        <ul>
+                            <li>واجهة مستخدم سهلة وجذابة</li>
+                            <li>مجموعة متنوعة من الفئات والمواضيع</li>
+                            <li>تقييم فوري للأداء مع نتائج مفصلة</li>
+                            <li>مؤقت زمني لزيادة التحدي</li>
+                            <li>تصميم متجاوب يعمل على جميع الأجهزة</li>
+                        </ul>
+                        
+                        <h4 class="mt-4">كيفية الاستخدام:</h4>
+                        <ol>
+                            <li>اختر فئة الاختبار المناسبة</li>
+                            <li>اقرأ السؤال بعناية واختر الإجابة الصحيحة</li>
+                            <li>استخدم أزرار التالي والسابق للتنقل بين الأسئلة</li>
+                            <li>اضغط على إنهاء الاختبار عند الانتهاء</li>
+                            <li>اطلع على نتيجتك وتقييم أدائك</li>
+                        </ol>
+                        
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary" id="home-about-btn">العودة للرئيسية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="text-capitalize">developed by bashar dagher with bootstrap</p>
+            <p class="mb-0">جميع الحقوق محفوظة &copy; 2023 تطبيق الاختبارات</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
